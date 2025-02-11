@@ -27,10 +27,14 @@ async function getData(userId: string) {
     },
     select: {
       username: true,
+      grantId: true,
     },
   });
   if (!data?.username) {
     return redirect("/onboarding");
+  }
+  if (!data.grantId) {
+    return redirect("/onboarding/grant-id");
   }
   return data;
 }
@@ -104,7 +108,7 @@ export default async function DashboardLayout({
                   <DropdownMenuLabel>My Account</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem asChild>
-                    <Link href={"/dashboard/settings"}>Setiings</Link>
+                    <Link href={"/dashboard/settings"}>Settings</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
                     <form

@@ -21,7 +21,7 @@ interface submitAppProps {
     | undefined;
   classname?: string;
 }
-
+ 
 export function SubmitButton({ text, variant, classname }: submitAppProps) {
   const { pending } = useFormStatus();
 
